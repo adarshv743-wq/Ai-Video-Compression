@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Video Enhancement
+    </title> 
+       <link rel="stylesheet" href="style.css"> 
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>
+            AI Video Enhancement System
+        </h1>
+
+        <p>
+            Deep Learning Based Compression
+            Artifact Removal
+        </p>
+
+    </header>
+
+
+    <section class="upload-box">
+
+        <h2>
+            Upload Video
+        </h2>
+
+        <p>
+            Upload a compressed or low-quality
+            video for enhancement.
+        </p>
+
+        <form
+            action="/process"
+            method="POST"
+            enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="video"
+                accept="video/*"
+                required>
+
+            <button type="submit">
+
+                Enhance Video
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    {% if error %}
+
+    <div class="error">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+    {% if result %}
+
+    <section class="result">
+
+        <h2>
+            Processing Result
+        </h2>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <h3>Resolution</h3>
+
+                <p>
+                    {{ result.resolution }}
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>FPS</h3>
+
+                <p>
+                    {{ result.fps }}
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>Frames</h3>
+
+                <p>
+                    {{ result.frames }}
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>Average PSNR</h3>
+
+                <p>
+                    {{ result.psnr }} dB
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="success">
+
+            Video enhancement completed
+            successfully.
+
+        </div>
+
+
+        <p class="path">
+
+            Output saved at:
+
+            {{ result.output_video }}
+
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <section class="about">
+
+        <h2>
+            How It Works
+        </h2>
+
+        <div class="workflow">
+
+            <div>
+                1<br>
+                Video Upload
+            </div>
+
+            <span>→</span>
+
+            <div>
+                2<br>
+                Compression
+            </div>
+
+            <span>→</span>
+
+            <div>
+                3<br>
+                AI Filtering
+            </div>
+
+            <span>→</span>
+
+            <div>
+                4<br>
+                Quality Analysis
+            </div>
+
+            <span>→</span>
+
+            <div>
+                5<br>
+                Enhanced Video
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+
+</html>
